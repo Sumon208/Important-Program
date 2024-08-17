@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+void Sieve(int a,int b){
+    bool Prime[b+1];
+    memset(Prime,1,sizeof(Prime));
+     for(int i=2;i*i<=b;i++){
+        if(Prime[i]==1){
+            for(int j=i*i;j<=b;j+=i){
+                Prime[j]=0;
+            }
+        }
+     }
+     for(int i=a;i<=b;i++){
+        if(Prime[i]==1){
+            cout<<i<<" ";
+        }
+     }
+}
+int main()
+{
+   int n,m;
+   cin>>n>>m;
+   Sieve(n,m);
+return 0;
+}
